@@ -19,7 +19,7 @@
 <li>Fully containerized using <strong>Docker</strong> and deployed on <strong>ECS Fargate.</strong></li>
 </ul></p>
 <h2>Setup and Workflow</h2>
-<p>![Image](https://github.com/user-attachments/assets/b06ed0e4-fafb-40ab-8868-2a6c6fa38dfe)</p>
+![Image](https://github.com/user-attachments/assets/9b56ae4f-0e64-416e-b52d-b3bceb116d8a)
 <p><ol>
 <li><strong>Pre-Requisites</strong></li>
 <ul>
