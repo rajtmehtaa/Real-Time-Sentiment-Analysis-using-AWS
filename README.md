@@ -72,13 +72,13 @@ Create an S3 bucket to store raw article data
 - To Simplify the deployment and avoid including large libraries directly in the Lambda function, we have to use **AWS Lammbda k-Layers** for pre-installed dependencies.
 - Paste the ARNs for the respective layers based on your AWS Region.
 ```bash
-arn:aws:lambda:eu-central-1:770693421928:layer:Klayers-python38-nltk:47
+arn:aws:lambda:us-east-1:770693421928:layer:Klayers-python38-nltk:47
 ```
 ```bash 
-arn:aws:lambda:eu-central-1:770693421928:layer:Klayers-python38-pytz:5
+arn:aws:lambda:us-east-1:770693421928:layer:Klayers-python38-pytz:5
 ```
 ```bash 
-arn:aws:lambda:eu-central-1:770693421928:layer:Klayers-python38-pandas:37
+arn:aws:lambda:us-east-1:770693421928:layer:Klayers-python38-pandas:37
 ```
 
 - Configure the environment variables for the kLayers
