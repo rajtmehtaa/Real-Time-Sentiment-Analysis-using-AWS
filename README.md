@@ -19,7 +19,6 @@
 <li>Fully containerized using <strong>Docker</strong> and deployed on <strong>ECS Fargate.</strong></li>
 </ul></p>
 <h2>Setup and Workflow</h2>
-![Image](https://github.com/user-attachments/assets/9b56ae4f-0e64-416e-b52d-b3bceb116d8a)
 <p><ol>
 <li><strong>Pre-Requisites</strong></li>
 <ul>
@@ -30,4 +29,19 @@
   <li>Windows Subsystem for Linux (WSL) installed and configured to enable the use of Bash commands for tasks like managing Poetry dependencies and working with Dockerfiles.</li>
 </ul>
 <p><li>Architecture Workflow</li></p>
+<ul>
+  <li><strong>Guardian API:</strong> Fetches real-time news articles.</li>
+  <li><strong>AWS Lambda:</strong> Processes the articles, performs sentiment analysis, and saves the data.</li>
+  <li><strong>AWS EventBridge:</strong> Triggers the AWS Lambda function every 5 minutes to automate real-time data ingestion.</li>
+  <li><strong>AWS RDS (PostgreSQL):</strong> Stores processed data for structured querying and efficient retrieval.</li>
+  <li><strong>S3:</strong> Stores raw data as a backup for future use and scalability.</li>
+  <li><strong>Streamlit App:</strong> Provides an interactive visualization of sentiment analysis results, allowing users to explore insights easily.</li>
+  <li><strong>ECS Fargate:</strong> Hosts the Streamlit app in a containerized environment, ensuring global accessibility via the cloud.</li>
+</ul>
 </ol></p>
+<h2>Setup Instructions</h2>
+<h4>Guardian API</h4>
+<ul>
+<li><p>Register for the Guardian API key (https://open-platform.theguardian.com/documentation/)</p></li>
+<li>Configure API locally [Goto: for more information]</li>
+</ul>
