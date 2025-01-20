@@ -26,7 +26,7 @@ This project focuses on building a robust Sentiment Analysis Pipeline using AWS 
 
 ## Setup and Workflow
 
-## Architecture Diagram
+### Architecture Diagram
 ![Image](https://github.com/user-attachments/assets/a7eeaf45-423a-4afa-8a8d-84f2c641ecd7)
 
 ### Pre-Requisites
@@ -64,3 +64,28 @@ CREATE TABLE gp_analytics(
     sentiment_score double precision,
     PRIMARY KEY(author, timestamp)
 );
+```
+### S3 Bucket
+Create an S3 bucket to store raw article data
+
+### Lambda Function
+- Use the provided lambda_function.py to fetch articles, perform sentiment analysis, and store the results in RDS and S3.
+- To Simplify the deployment and avoid including large libraries directly in the Lambda function, we have to use **AWS Lammbda k-Layers** for pre-installed dependencies.
+- Paste the ARNs for the respective layers based on your AWS Region.
+    - ARN1
+    - ARN2
+- Configure the environment variables for the kLayers
+    - `GUARDIAN_API_KEY`
+    - `DB_HOST`
+    - `DB_PASSWORD`
+    - `S3_BUCKET_NAME`
+      
+### Schedule Lambda with EventBridge
+Configure AWS EventBridge to trigger the Lambda function every 5 minutes.
+
+### The Streamlit App
+Use Streamlit to visualize sentiment analysis results with color-coded sentiment scores (red for negative, green for positive, and gray for neutral). Refer to xyz.py for the Streamlit implementation.
+  
+
+
+
