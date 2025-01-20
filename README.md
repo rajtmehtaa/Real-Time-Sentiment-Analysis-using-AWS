@@ -51,7 +51,6 @@ This project focuses on building a robust Sentiment Analysis Pipeline using AWS 
 
 ### Guardian API
 1. Register for the Guardian API key: [Guardian API Documentation](https://open-platform.theguardian.com/documentation/)
-2. Configure the API locally. [Refer to documentation for more details].
 
 ### Postgres
 Create the table with the following SQL query:
@@ -85,7 +84,45 @@ Configure AWS EventBridge to trigger the Lambda function every 5 minutes.
 
 ### The Streamlit App
 Use Streamlit to visualize sentiment analysis results with color-coded sentiment scores (red for negative, green for positive, and gray for neutral). Refer to xyz.py for the Streamlit implementation.
-  
 
+### Manage Dependencies with Poetry and Containerize the Streamlit App
+- Refer Local Setup on how to install and manage dependencies using Poetry and Building and Testing the Docker Image.
 
+### Deploy on ECS Fargate
+- Use the AWS CLI to upload the containerized Streamlit app to Amazon Elastic Container Registry (ECR)
+- Create an ECS Fargate Cluster and define a task definiation that uses the Docker image from your ECR Repository, and set the required Environment variables.
+- After deploying the App, Configure the IPv4 for Public Access. Ensure that the ECS Fargate task has a public IPv4 address assigned. The default port will be 8501 for IPv4.
+
+## Local Setup
+For running this locally, it would be better to run the code by creating a conda virtual environment and install the following:
+- Install anaconda3
+- Start Anaconda Powershell
+- set the environment variables:
+```bash
+[Environment]::SetEnvironmentVariable("GUARDIAN_API_KEY", "Your-api-key", "User")
+[Environment]::SetEnvironmentVariable("S3_BUCKET_NAME", "my-guardianpost-analytics-storage", "User")
+[Environment]::SetEnvironmentVariable("DB_PASSWORD", "password", "User")
+[Environment]::SetEnvironmentVariable("DB_HOST", "your-RDS-endpoint", "User")
+```
+
+```bash
+conda create --name guardianpost_analytics_py38 python=3.8 spyder
+conda activate guardianpost_analytics_py38
+conda install -c conda-forge poetry # dependency management
+conda install -c conda-forge notebook # for jupyter
+```
+
+- For Install Project Dependencies
+```bash
+poetry install
+```   
+
+- After setting up the Environment variables you can run the Dashboard locally with:
+```bash
+poetry run streamlit run src/app.py
+```   
+
+## Screenshot
+#### Dashboard with color-coded sentiment scores.
+![Image](https://github.com/user-attachments/assets/ed572b83-4c3c-4d6f-8e95-da12a78c6faf)
 
