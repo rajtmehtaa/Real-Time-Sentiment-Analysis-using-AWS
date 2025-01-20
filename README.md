@@ -45,3 +45,16 @@
 <li><p>Register for the Guardian API key (https://open-platform.theguardian.com/documentation/)</p></li>
 <li>Configure API locally [Goto: for more information]</li>
 </ul>
+<h4>Postgres</h4>
+Create the table with the following SQL query:
+```sql
+CREATE TABLE gp_analytics(
+	author varchar(50),
+	timestamp timestamp with time zone,
+	text varchar(300),
+	sentiment_score double precision,
+	PRIMARY KEY(author, timestamp)
+	);
+
+
+
